@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular</title>
+    <script src="./angular.js"></script>
+    <script src="./controller.js"></script>
+    <script src="./test.js"></script>
+</head>
+<body ng-app="DemoApp" ng-controller="ItemListController">
+    <h1 ng-if="true">Hello world!</h1>
+    <div 
+        ng-repeat="item in items" 
+        data-ng-show="item.description == 'female'"
+    >
+        <ul>
+            <li>
+                {{item.name}}
+                {{item.description}}
+            </li>
+        </ul>
+        <textarea name="" id="" cols="15" rows="5" ng-model="item.description"></textarea>
+    </div>
+</body>
+</html>

@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angular</title>
+    <title>Search</title>
     <script src="./angular.js"></script>
-    <script src="./controller.js"></script>
-    <script src="./test.js"></script>
+    <script src="./controllers/searchController.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body ng-app="DemoApp" ng-controller="ItemListController">
-    <h1 ng-if="true">Hello world!</h1>
+<body>
     <div 
-        ng-repeat="item in items" 
-        data-ng-show="item.description == 'female'"
+        ng-app="instantSearch" ng-controller="InstantSearchController"
     >
+        <div class="bar">
+            <!-- Create a binding between the searchString model and the text field -->
+            <input 
+                type="text" 
+                ng-model="searchFor" 
+                placeholder="Enter your search terms" 
+            />
+        </div>
         <ul>
-            <li>
-                {{item.name}}
-                {{item.description}}
+            <li ng-repeat="item in items | filter:searchFor">
+                <p>{{item.title}}</p>
             </li>
         </ul>
-        <textarea name="" id="" cols="15" rows="5" ng-model="item.description"></textarea>
     </div>
 </body>
 </html>
